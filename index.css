@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: snow;
+  color: #333;
+  width: 960px;
+  padding: 40px 0;
+  margin: 0 auto;
+}
+
+img, video {
+  width: 800px;
+  height: 450px;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.video {
+  float: left;
+  width: 800px;
+}
+
+.loading {
+  text-align: center;
+}
+
+.buttons {
+  float: left;
+  width: 160px;
+}
+
+button {
+  display: block;
+  width: 90px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 7px 10px;
+}
+
+button:hover {
+  color: black;
+  border-color: black;
+}
