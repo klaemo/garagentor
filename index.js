@@ -1,27 +1,30 @@
-(function () {
+(function main() {
 
 var img = document.querySelector('.video img')
 var up = document.querySelector('.up')
 var down = document.querySelector('.down')
 var ivl
 var isPlaying = false
-var currentFrame = 51
+var currentFrame = 1
 
 function imgUrl (i) {
   return 'img_small/' + i + '.jpg'
 }
 
-function preload () {
+var images = []
+
+function preload() {
   var preImg
-  for (var i = currentFrame; i <= 394; i++) {
-    preImg = document.createElement('img')
-    preImg.style.display = 'none'
-    preImg.src = imgUrl(i)
-    document.body.appendChild(preImg)
-    if (i === 100) {
-      document.querySelector('.loading').style.display = 'none'
-      img.src = imgUrl(currentFrame)
+  for (var i = currentFrame; i <= 334; i++) {
+    preImg = new Image()
+    images.push(preImg)
+    if (i === 150) {
+      preImg.onload = function () {
+        document.querySelector('.loading').style.display = 'none'
+        img.src = imgUrl(1)
+      }
     }
+    preImg.src = imgUrl(i)
   }
 }
 
@@ -53,7 +56,7 @@ function play (direction) {
     if (direction === 'backwards') currentFrame--
     
     // stop at end and beginning
-    if (currentFrame > 394 || currentFrame === 0) {
+    if (currentFrame > 334 || currentFrame === 1) {
       clearInterval(ivl)
       isPlaying = false
       return
